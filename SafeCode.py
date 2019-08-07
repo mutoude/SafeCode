@@ -1,13 +1,7 @@
 import tushare as ts
 
-#
-# df = pro.daily(ts_code='000001.SZ', start_date='20180701', end_date='20180718')
-flag = 0
-
 
 def get_all_code():
-    global flag
-    flag = 0
     data = pro.stock_basic(list_status='L')
     totle = data.shape[1]
     print(totle)
@@ -20,8 +14,6 @@ def get_all_code():
 
 
 def get_dalidy_data(code):
-    # data = pro.daily(ts_code=code, start_date='20180701', end_date='20180718')
-    # print(data)
     print(code)
     data = ts.get_hist_data(code, start='2019-08-06', end='2019-08-06')
     if (data is not None and not data.empty):
